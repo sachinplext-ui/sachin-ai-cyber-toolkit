@@ -1,0 +1,6 @@
+{
+  "appId": "com.sachinai.cybertoolkit",
+  "appName": "Sachin AI Cyber Toolkit",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

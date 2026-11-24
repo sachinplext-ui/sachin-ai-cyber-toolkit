@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: sachin-ai-cyber-toolkit
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_FILE
+        value: /var/data/app.db
+      - key: ALLOWED_ORIGIN
+        value: https://YOUR-DEPLOYED-DOMAIN.example
+    disk:
+      name: toolkit-data
+      mountPath: /var/data
+      sizeGB: 1
