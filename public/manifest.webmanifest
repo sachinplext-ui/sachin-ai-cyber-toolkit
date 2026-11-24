@@ -1,0 +1,16 @@
+{
+  "name": "SACHIN AI CYBER TOOLKIT",
+  "short_name": "SACHIN AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#00d9ff",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
