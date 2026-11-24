@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f"><link rel="manifest" href="/manifest.webmanifest"><title>SACHIN AI CYBER TOOLKIT</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><div class="brand"><span class="orb">S</span><div><b>SACHIN AI</b><small>CYBER TOOLKIT</small></div></div><span id="status" class="status">GUEST MODE</span></header>
+<main>
+<section class="hero"><p class="eyebrow">DEFENSIVE SECURITY WORKSPACE</p><h1>Cyber security.<br><em>Made simpler.</em></h1><p class="muted">A Jarvis-style dashboard for learning and checking your own digital safety.</p></section>
+<nav id="nav"><button class="active" data-page="home">Dashboard</button><button data-page="jarvis">Jarvis</button><button data-page="website">Website check</button><button data-page="phishing">Phishing check</button><button data-page="network">Network info</button><button data-page="apk">APK info</button><button data-page="account">Account</button></nav>
+<section id="home" class="page active"><div class="grid">
+<article class="tile"><span class="tag">01 / ASSISTANT</span><h2>Jarvis Assistant</h2><p>Use voice or text to navigate this workspace.</p><button data-go="jarvis">Open Jarvis →</button></article>
+<article class="tile"><span class="tag">02 / WEB</span><h2>Website checker</h2><p>Review URL format and common warning signs.</p><button data-go="website">Check a URL →</button></article>
+<article class="tile"><span class="tag">03 / SAFETY</span><h2>Phishing detector</h2><p>Look for suspicious URL patterns. Results are not proof.</p><button data-go="phishing">Check link →</button></article>
+<article class="tile"><span class="tag">04 / DEVICE</span><h2>Network info</h2><p>See basic browser connection information only.</p><button data-go="network">View info →</button></article>
+<article class="tile"><span class="tag">05 / FILE</span><h2>APK information</h2><p>Read selected file name and size; no malware scan.</p><button data-go="apk">Inspect file →</button></article>
+<article class="tile"><span class="tag">06 / ACCOUNT</span><h2>Secure account</h2><p>Create an account or sign in to the local API.</p><button data-go="account">Account →</button></article>
+</div></section>
+<section id="jarvis" class="page panel"><span class="tag">VOICE ASSISTANT</span><h2>Jarvis</h2><p class="muted">Tap the microphone and say “open website”, “open phishing”, or “dashboard”.</p><div class="row"><button id="listen">🎙 Start listening</button><input id="command" placeholder="Or type a command"><button id="sendCommand">Send</button></div><p id="jarvisReply" class="reply">Ready when you are.</p>
+<div class="chatbox">
+  <div class="chat-head"><h3>Ask Jarvis AI</h3><button id="clearChat" class="secondary">Clear chat</button></div>
+  <div id="chatMessages" class="chat-messages" aria-live="polite"><p class="chat-note">AI chat is available when the server owner configures the private API key. Otherwise Jarvis replies in Demo Mode.</p></div>
+  <div class="row"><input id="aiMessage" maxlength="2000" placeholder="Ask Jarvis a question..."><button id="sendAI">Send to Jarvis</button></div>
+  <p class="muted small">Do not enter passwords, private keys, or sensitive personal information.</p>
+</div></section>
+<section id="website" class="page panel"><span class="tag">URL REVIEW</span><h2>Website checker</h2><p class="muted">Checks URL syntax and a few visible warning signs. It does not visit or scan the website.</p><div class="row"><input id="siteUrl" placeholder="https://example.com"><button id="checkSite">Review URL</button></div><div id="siteResult" class="reply">Enter a URL you own or are allowed to review.</div></section>
+<section id="phishing" class="page panel"><span class="tag">LINK SAFETY</span><h2>Phishing detector</h2><p class="muted">A heuristic educational check. Never enter passwords from an unexpected link.</p><div class="row"><input id="phishUrl" placeholder="Paste a link"><button id="checkPhish">Check link</button></div><div id="phishResult" class="reply">No link checked yet.</div></section>
+<section id="network" class="page panel"><span class="tag">BROWSER ONLY</span><h2>Network information</h2><div id="networkResult" class="reply"></div><p class="muted">This page cannot inspect other devices, scan ports, or reveal your Wi-Fi password.</p></section>
+<section id="apk" class="page panel"><span class="tag">FILE DETAILS</span><h2>APK information</h2><p class="muted">Select an APK to read basic local file metadata only.</p><input type="file" id="apkFile" accept=".apk,application/vnd.android.package-archive"><div id="apkResult" class="reply">No file selected.</div></section>
+<section id="account" class="page panel"><span class="tag">LOCAL API ACCOUNT</span><h2>Login / Register</h2><p class="muted">Use a unique password. This starter stores accounts in its local SQLite database.</p><div class="form"><input id="email" type="email" placeholder="Email"><input id="password" type="password" placeholder="Password (10+ characters)"><div class="row"><button id="register">Create account</button><button id="login" class="secondary">Sign in</button><button id="logout" class="secondary">Sign out</button></div></div><p id="accountResult" class="reply">Not signed in.</p></section>
+<footer>Prototype v2 • Built for authorized, defensive use only.</footer>
+</main><script src="/app.js"></script>
+</body></html>
