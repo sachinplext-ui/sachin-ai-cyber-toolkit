@@ -40,7 +40,7 @@ const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 10, standardHea
 
 const cleanEmail = (v) => String(v || "").trim().toLowerCase();
 function auth(req, res, next) {
-  const token = (req.headers.authorization || "").replace(/^Bearer\\s+/i, "");
+  const token = (req.headers.authorization || "").replace(/^Bearer\s+/i, "")
   try {
     req.user = jwt.verify(token, SECRET);
     next();
@@ -78,11 +78,11 @@ app.post("/api/ai-chat", aiLimiter, async (req, res) => {
     const upstream = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+      "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || "gpt-5.5",
+        model: process.env.OPENAI_MODEL || "gpt-6-luna",
         instructions: JARVIS_INSTRUCTIONS,
         input: [...safeHistory, { role: "user", content: message }],
         max_output_tokens: 500,
@@ -114,7 +114,7 @@ app.get("/api/health", (_req, res) => res.json({ ok: true, service: "SACHIN AI C
 app.post("/api/register", authLimiter, async (req, res) => {
   const email = cleanEmail(req.body.email);
   const password = String(req.body.password || "");
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) return res.status(400).json({ error: "Enter a valid email." });
+ if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))  return res.status(400).json({ error: "Enter a valid email." });
   if (password.length < 10) return res.status(400).json({ error: "Password must be at least 10 characters." });
   if (password.length > 72) return res.status(400).json({ error: "Password is too long." });
   try {
