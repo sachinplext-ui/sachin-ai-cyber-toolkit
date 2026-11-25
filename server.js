@@ -93,8 +93,18 @@ app.post("/api/ai-chat", aiLimiter, async (req, res) => {
     });
     const payload = await upstream.json().catch(() => ({}));
     if (!upstream.ok) {
-      console.error("AI provider request failed:", upstream.status);
-      return res.status(502).json({ error: "AI service is temporarily unavailable. Check the server AI configuration." });
+  console.error("AI provider request failed:", upstream.status);
+
+  if (upstream.status === 429) {
+    return res.json({
+      mode: "demo",
+      reply: "Jarvis Demo Mode: AI credits are currently unavailable. I can still help with basic toolkit guidance. Try asking for help or available features."
+    });
+  }
+
+  return res.status(502).json({
+    error: "AI service is temporarily unavailable. Check the server AI configuration."
+  });
     }
     const reply = (payload.output || [])
       .filter(item => item.type === "message")
